@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Naimur Rahman — nrahman.cyou</title>
+  <meta name="description" content="Naimur Rahman (@CodeWithNaim) — developer building useful tools for the web." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230b0f19'/><text x='50' y='70' font-size='56' text-anchor='middle' fill='%237c8cff' font-family='system-ui' font-weight='bold'>N</text></svg>" />
+
+  <style>
+    /* ================= EDIT: COLORS HERE ================= */
+    :root {
+      --bg:      #0b0f19;
+      --card:    #121828;
+      --border:  #1f2937;
+      --text:    #e5e7eb;
+      --dim:     #9ca3af;
+      --accent:  #7c8cff;
+      --accent2: #22d3ee;
+      --radius:  14px;
+    }
+    /* ===================================================== */
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.7;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 0 22px; }
+
+    /* ---------- Header ---------- */
+    header {
+      position: sticky; top: 0; z-index: 10;
+      backdrop-filter: blur(10px);
+      background: rgba(11, 15, 25, .8);
+      border-bottom: 1px solid var(--border);
+    }
+    .header-in {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 62px;
+    }
+    .logo { font-weight: 700; font-size: 1.05rem; }
+    .logo span { color: var(--accent); }
+    nav a { color: var(--dim); margin-left: 20px; font-size: .92rem; }
+    nav a:hover { color: var(--text); text-decoration: none; }
+    @media (max-width: 560px) { nav a { margin-left: 12px; font-size: .85rem; } }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      padding: 96px 0 72px;
+      background:
+        radial-gradient(600px 300px at 80% -10%, rgba(124,140,255,.14), transparent),
+        radial-gradient(500px 260px at 10% 110%, rgba(34,211,238,.10), transparent);
+    }
+    .badge {
+      display: inline-block; padding: 5px 13px; margin-bottom: 20px;
+      border: 1px solid var(--border); border-radius: 999px;
+      color: var(--accent2); font-size: .82rem;
+      background: rgba(34,211,238,.06);
+    }
+    .hero h1 { font-size: clamp(2rem, 5.5vw, 3.1rem); line-height: 1.15; letter-spacing: -.02em; }
+    .hero h1 .grad {
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .hero p { color: var(--dim); max-width: 560px; margin-top: 16px; font-size: 1.06rem; }
+    .buttons { margin-top: 30px; display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 20px; border-radius: 10px;
+      font-size: .95rem; font-weight: 600;
+      border: 1px solid var(--border);
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .btn:hover { transform: translateY(-2px); text-decoration: none; }
+    .btn-primary { background: var(--accent); color: #0b0f19; border-color: var(--accent); }
+    .btn-ghost { color: var(--text); }
+    .btn-ghost:hover { border-color: var(--accent); }
+
+    /* ---------- Sections ---------- */
+    section { padding: 56px 0; }
+    h2 {
+      font-size: 1.35rem; margin-bottom: 22px; letter-spacing: -.01em;
+    }
+    h2::before { content: "# "; color: var(--accent); }
+    .about p { color: var(--dim); max-width: 640px; }
+    .about p + p { margin-top: 12px; }
+
+    /* ---------- Projects ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .card:hover { transform: translateY(-3px); border-color: var(--accent); }
+    .card h3 { font-size: 1.02rem; margin-bottom: 8px; }
+    .card p { color: var(--dim); font-size: .9rem; margin-bottom: 14px; }
+    .card .links a { font-size: .85rem; margin-right: 14px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+    .chip {
+      font-size: .78rem; color: var(--dim);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 3px 11px;
+    }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 26px 0; margin-top: 30px;
+      color: var(--dim); font-size: .85rem;
+      display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="wrap header-in">
+      <div class="logo">nrahman<span>.cyou</span></div>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <!-- EDIT: your intro text -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="badge">● Available for new ideas</div>
+      <h1>Hi, I'm <span class="grad">Naimur Rahman</span>.<br />I build useful tools for the web.</h1>
+      <p>
+        Developer and maker. I create small, focused web apps — from developer
+        utilities to productivity tools. This is where I share what I'm building.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://github.com/CodeWithNaim" target="_blank" rel="noopener">GitHub ↗</a>
+        <a class="btn btn-ghost" href="#projects">See my projects ↓</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ABOUT ================= -->
+  <!-- EDIT: your about text -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <h2>About</h2>
+      <p>
+        I'm Naimur — a developer who enjoys turning small ideas into working
+        products. I care about clean design, simple code, and tools that
+        actually save people time.
+      </p>
+      <p>
+        Most of my work lives on <a href="https://github.com/CodeWithNaim" target="_blank" rel="noopener">GitHub</a>
+        and is deployed on Vercel.
+      </p>
+      <div class="chips">
+        <!-- EDIT: your skills -->
+        <span class="chip">Web Development</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">AI Tools</span>
+        <span class="chip">Open Source</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <!-- EDIT: swap in your own projects -->
+  <section id="projects">
+    <div class="wrap">
+      <h2>Projects</h2>
+      <div class="grid">
+
+        <div class="card">
+          <h3>MetaData Generator</h3>
+          <p>Generate clean, ready-to-use metadata for your projects in seconds.</p>
+          <div class="links">
+            <a href="https://metagen-pro.vercel.app" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/CodeWithNaim/MetaData_Generator" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>NoteDown</h3>
+          <p>A simple, fast notes app — write it down before you forget it.</p>
+          <div class="links">
+            <a href="https://notedown-mu.vercel.app" target="_blank" rel="noopener">Live ↗</a>
+            <a href="https://github.com/CodeWithNaim/NoteDown" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Theme Weaver</h3>
+          <p>Create and customize themes with an easy visual workflow.</p>
+          <div class="links">
+            <a href="https://theme-weaver.vercel.app" target="_blank" rel="noopener">Live ↗</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section id="contact">
+    <div class="wrap">
+      <h2>Contact</h2>
+      <p style="color: var(--dim); max-width: 640px;">
+        Want to reach out? The best place to find me is GitHub.
+      </p>
+      <div class="buttons">
+        <a class="btn btn-primary" href="https://github.com/CodeWithNaim" target="_blank" rel="noopener">@CodeWithNaim ↗</a>
+        <!-- EDIT: add your email — remove the comment to show it
+        <a class="btn btn-ghost" href="mailto:your@email.com">Email me</a>
+        -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <div class="wrap" style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;width:100%;">
+      <span>© <span id="year"></span> Naimur Rahman — nrahman.cyou</span>
+      <span>Built with ♥ and deployed on Vercel</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
